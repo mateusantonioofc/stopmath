@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOPMATH - Desafio PA</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/rank.css">
+</head>
+
+<body>
+    <div class="space-background" id="stars-container"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="score">Score: <span id="score-value">0</span></div>
+            <div class="header-right">
+                <button class="hint-btn" id="hint-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+                    </svg>
+                    Dicas
+                </button>
+                <div class="rank-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="timer-container">
+            <div class="timer">
+                <div class="timer-progress"></div>
+                <div class="timer-number" id="timer-value">10</div>
+            </div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-title">DESAFIO DE PROGRESSÃO ARITMÉTICA (PA)</div>
+            <div class="question" id="question-text">Carregando questão...</div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" class="answer-input" id="answer-input" placeholder="Digite sua resposta">
+        </div>
+
+        <div class="submit-container">
+            <button class="submit-btn" id="submit-btn">ENVIAR</button>
+        </div>
+
+        <div class="feedback-container" id="feedback-container">
+            <div class="feedback-message" id="feedback-message"></div>
+        </div>
+    </div>
+
+    <div class="external-carousel-controls" id="external-carousel-controls">
+        <button class="external-carousel-btn" id="external-prev-btn">Anterior</button>
+        <div class="external-indicators" id="external-indicators">
+        </div>
+        <button class="external-carousel-btn" id="external-next-btn">Próximo</button>
+    </div>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>📚 Guia de Progressão Aritmética</h2>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-slide active">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <div class="formula-display">
+                                    <span class="formula">PA = {a₁, a₂, a₃, ..., aₙ}</span>
+                                </div>
+                            </div>
+                            <div class="slide-text">
+                                <h3>O que é uma PA?</h3>
+                                <p>Uma Progressão Aritmética é uma sequência numérica onde cada termo, a partir do
+                                    segundo, é igual à soma do termo anterior com uma constante chamada <strong>razão
+                                        (r)</strong>.</p>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> 2, 5, 8, 11, 14...
+                                    <br><strong>Razão:</strong> r = 3
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <div class="formula-display large">
+                                    <span class="formula">aₙ = a₁ + (n - 1) × r</span>
+                                </div>
+                            </div>
+                            <div class="slide-text">
+                                <h3>Fórmula do Termo Geral</h3>
+                                <p>Para encontrar qualquer termo de uma PA, use a fórmula:</p>
+                                <div class="formula-example">
+                                    <strong>Onde:</strong>
+                                    <ul>
+                                        <li>aₙ = termo que queremos encontrar</li>
+                                        <li>a₁ = primeiro termo</li>
+                                        <li>n = posição do termo</li>
+                                        <li>r = razão</li>
+                                    </ul>
+                                </div>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> Na PA (3, 7, 11...)
+                                    <br>a₁₅ = 3 + (15-1)×4 = 59
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <div class="formula-display large">
+                                    <span class="formula">aₙ = ak + (n - k) × r</span>
+                                </div>
+                            </div>
+                            <div class="slide-text">
+                                <h3>Fórmula do Termo "Generalíssimo"</h3>
+                                <p>Para encontrar qualquer termo de uma PA apartir de um termo qualquer, use a fórmula:</p>
+                                <div class="formula-example">
+                                    <strong>Onde:</strong>
+                                    <ul>
+                                        <li>aₙ = termo que queremos encontrar</li>
+                                        <li>ak = termo de referência</li>
+                                        <li>k = posição do termo</li>
+                                        <li>r = razão</li>
+                                    </ul>
+                                </div>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> Na PA (3, 7, 11...)
+                                    <br>a₁₅ = 7 + (15-2)×4 = 59
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <div class="formula-display">
+                                    <span class="formula">r = a₂ - a₁</span>
+                                </div>
+                            </div>
+                            <div class="slide-text">
+                                <h3>Calculando a Razão</h3>
+                                <p>A razão é a diferença entre qualquer termo e seu anterior:</p>
+                                <div class="formula-example">
+                                    <strong>r = a₂ - a₁ = a₃ - a₂ = ... = aₙ - aₙ₋₁</strong>
+                                </div>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> Na PA (5, 9, 13, 17...)
+                                    <br>r = 9 - 5 = 4
+                                    <br>r = 13 - 9 = 4
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <div class="formula-display large">
+                                    <span class="formula">Sₙ = n × (a₁ + aₙ) / 2</span>
+                                </div>
+                            </div>
+                            <div class="slide-text">
+                                <h3>Soma dos Termos</h3>
+                                <p>Para calcular a soma dos n primeiros termos de uma PA:</p>
+                                <div class="formula-example">
+                                    <strong>Onde:</strong>
+                                    <ul>
+                                        <li>Sₙ = soma dos n primeiros termos</li>
+                                        <li>a₁ = primeiro termo</li>
+                                        <li>aₙ = último termo</li>
+                                        <li>n = número de termos</li>
+                                    </ul>
+                                </div>
+                                <div class="example">
+                                    <strong>Exemplo:</strong> Soma dos 5 primeiros termos da PA (2, 5, 8, 11, 14)
+                                    <br>S₅ = 5 × (2 + 14) / 2 = 5 × 16 / 2 = 40
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/rank.js"></script>
+</body>
+</html>

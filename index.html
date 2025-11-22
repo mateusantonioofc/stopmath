@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOPMATH - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="space-background" id="stars-container"></div>
+    
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <div class="logo-icon">∑</div>
+                    <h1>STOPMATH</h1>
+                </div>
+                <p class="tagline">Desafio de Progressão Aritmética</p>
+            </div>
+
+            <form class="login-form" id="login-form">
+                <div class="input-group">
+                    <label for="username">Nome do Jogador</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Digite seu nome" 
+                        required
+                        maxlength="15"
+                        autocomplete="off"
+                        autofocus
+                    >
+                    <div class="input-underline"></div>
+                </div>
+
+                <button type="submit" class="start-btn" id="start-btn">
+                    <span class="btn-text">Iniciar Jogo</span>
+                    <span class="btn-icon">🚀</span>
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>Prepare-se para o desafio matemático!</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">⏱️</span>
+                        <span>Tempo limitado</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🏆</span>
+                        <span>Sistema de ranking</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📚</span>
+                        <span>Dicas disponíveis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
